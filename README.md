@@ -35,7 +35,16 @@ Running `sudo rm` **does** run the _actual_ `rm`, not the wrapper. This is very 
 * On interactive shell sessions, `rm` is disabled using a wrapper.
 * Running `rm` using `sudo` runs the actual `rm`, not the wrapper.
 * Ultra-lightweight and open source.
-* Very simple installation.
+* Very simple, non-privileged installation.
 
+---
+
+## Installation
+1. Download this repository as zip. Unzip it and place a terminal inside its directory.
+2. Run:
+```bash:
+./install
+```
+3. Restart your terminal.
 
 
