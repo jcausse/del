@@ -52,6 +52,7 @@ Recover the last deleted file or directory:
 `undel`
 ```
 
+---
 
 ## Installation
 
@@ -64,4 +65,8 @@ Recover the last deleted file or directory:
 
 3. Restart your terminal.
 
+---
 
+# TODO / Future Improvements:
+* Periodic and automatic trash cleanup.
+* `undel` all deleted files when deleted more than one file / directory within a single `del` invocation, instead of just the last one.
