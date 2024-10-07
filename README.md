@@ -1,4 +1,4 @@
-# `del` command
+# `del` / `undel` commands
 
 Created by [Juan Ignacio Causse](mailto:juanignaciocausse@gmail.com).
 
