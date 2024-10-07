@@ -9,6 +9,7 @@ Created by [Juan Ignacio Causse](mailto:juanignaciocausse@gmail.com).
 This command allows you to delete files and directories using the terminal and still be able to recover them.
 * `del` deletes one or multiple files / directories. Usage: `del <FILE / DIR> [<FILE / DIR> ...]`
 * `undel` recovers the last deleted file / directory. Usage: `undel`
+
 See [installation](#Installation) instructions.
 
 ---
@@ -38,6 +39,19 @@ Running `sudo rm` **does** run the _actual_ `rm`, not the wrapper. This is very 
 * Very simple, non-privileged installation.
 
 ---
+
+## Usage
+
+Delete files and directories:
+```bash:
+del <FILE / DIR> [<FILE / DIR> ...]
+```
+
+Recover the last deleted file or directory:
+```bash:
+`undel`
+```
+
 
 ## Installation
 1. Download this repository as zip. Unzip it and place a terminal inside its directory.
