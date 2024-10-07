@@ -67,6 +67,6 @@ Recover the last deleted file or directory:
 
 ---
 
-# TODO / Future Improvements:
+## TODO / Future Improvements:
 * Periodic and automatic trash cleanup.
 * `undel` all deleted files when deleted more than one file / directory within a single `del` invocation, instead of just the last one.
