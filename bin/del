@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# v1.0
+
+# Define the trash and log directories
+TRASH_DIR="$HOME/.deleted/trash"
+LOG_FILE="$HOME/.deleted/deletions.log"
+LAST_DELETION_FILE="$HOME/.deleted/last_deletion"
+
+# Create the trash directory if it doesn't exist
+mkdir -p "$TRASH_DIR"
+
+# Function to log the deletion
+log_deletion() {
+    local path=$1
+    local new_name=$2
+    local datetime=$(date +"%Y-%m-%d %H:%M:%S")
+    
+    # Write to the log file
+    echo "[$datetime] Deleted: $path -> $TRASH_DIR/$new_name" >> "$LOG_FILE"
+    
+    # Write to the last deletion file
+    echo "$path" > "$LAST_DELETION_FILE"
+    echo "$TRASH_DIR/$new_name" >> "$LAST_DELETION_FILE"
+}
+
+# Function to move files and directories to the trash directory
+move_to_trash() {
+    local path=$1
+
+    # Extract filename or directory name
+    local file=$(basename "$path")
+    
+    # Get current date and time
+    local datetime=$(date +"%Y-%m-%d-%H-%M-%S")
+    
+    # Add date and time prefix to the filename
+    local new_name="$datetime"_"$file"
+
+    # Move the file/directory to the trash directory
+    mv "$path" "$TRASH_DIR/$new_name"
+
+    # Log the deletion
+    log_deletion "$(pwd)/$path" "$new_name"
+}
+
+# Move each argument to the trash directory
+for arg in "$@"; do
+    move_to_trash "$arg"
+done
+

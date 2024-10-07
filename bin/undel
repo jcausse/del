@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# v1.0
+
+# Define the trash and log directories
+TRASH_DIR="$HOME/.deleted/trash"
+LOG_FILE="$HOME/.deleted/deletions.log"
+LAST_DELETION_FILE="$HOME/.deleted/last_deletion"
+
+log_recovery() {
+    local deleted_path=$1
+    local recovered_path=$2
+    local datetime=$(date +"%Y-%m-%d %H:%M:%S")
+    
+    # Write to the log file
+    echo "[$datetime] Recovered: $deleted_path -> $recovered_path" >> "$LOG_FILE"
+    
+    # Write to the last deletion file
+    echo "" > "$LAST_DELETION_FILE"
+}
+
+# Check if the last deletion file exists
+if [[ ! -f "$LAST_DELETION_FILE" ]]; then
+    echo "No files to recover."
+    exit 1
+fi
+
+# Read the last deletion file
+read -r last_path < "$LAST_DELETION_FILE"
+read -r last_trash_path < <(tail -n +2 "$LAST_DELETION_FILE")
+
+# Check if the deleted file exists in the trash
+if [[ ! -e "$last_trash_path" ]]; then
+    echo "The last deleted item does not exist in the trash."
+    exit 1
+fi
+
+# Get the filename from the trash path
+filename=$(basename "$last_trash_path")
+
+# Move the file back to its original location
+mv "$last_trash_path" "$last_path"
+
+# Inform the user of the recovery
+echo "Recovered '$filename' to '$last_path'."
+
+# Log recovery
+log_recovery "$last_trash_path" "$last_path"
+

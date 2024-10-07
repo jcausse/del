@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# v1.0
+
+# Check if the script is being run interactively
+if [ -t 0 ]; then
+    # If running interactively, display message and exit
+    echo "Please use del instead of rm :)"
+    exit 1
+fi
+
+# If running from a script, allow rm command to proceed
+/usr/bin/rm "$@"
