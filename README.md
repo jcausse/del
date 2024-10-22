@@ -49,7 +49,7 @@ del <FILE / DIR> [<FILE / DIR> ...]
 
 Recover the last deleted file or directory:
 ```bash:
-`undel`
+undel
 ```
 
 ---
