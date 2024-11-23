@@ -60,7 +60,7 @@ undel
 
 2. Run:
 ```bash:
-./install
+chmod +x ./install && ./install
 ```
 
 3. Restart your terminal.
