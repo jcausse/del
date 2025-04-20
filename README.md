@@ -68,5 +68,6 @@ chmod +x ./install && ./install
 ---
 
 ## TODO / Future Improvements:
+* Address bugs when using rm on non-interactive shell sessions.
 * Periodic and automatic trash cleanup.
 * `undel` all deleted files when deleted more than one file / directory within a single `del` invocation, instead of just the last one.
