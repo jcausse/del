@@ -56,7 +56,7 @@ undel
 
 ## Installation
 
-1. Download this repository as zip. Unzip it and open a terminal inside its directory.
+1. [Download the latest release of this repository as zip file](https://github.com/jcausse/del/releases/latest/). Unzip it and open a terminal inside its directory.
 
 2. Run:
 ```bash:
